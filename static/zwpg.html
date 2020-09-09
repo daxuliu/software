@@ -1,0 +1,285 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>作文批改</title>
+    <style>
+
+        .auto-style1 {
+            height: 1285px;
+        }
+
+        .auto-style2 {
+          
+            width: 1800px;
+            height: 50px;
+            position: relative;
+			margin:auto;
+			left:0%
+        }
+       
+
+        .auto-style8 {
+            height: 99px;
+            text-align: center;
+        }
+
+        .auto-style10 {
+            width: 89px;
+            height: 73px;
+        }
+         .auto-style11{
+           border: 1px solid white ;
+            width: 1406px;
+            height: 80px;
+            position: relative;
+			margin:auto;
+			left:0%
+
+           }
+          .auto-style12{
+           border: 1px solid blue;
+            width: 320px;
+            height: 80px;
+            position: absolute;
+            right: 1040px;
+            top: 0px;
+background-color :blue;
+        }
+           .auto-style13{
+           border: 1px solid blue;
+            width: 320px;
+            height: 80px;
+            position: absolute;
+            top: 0px;
+            left: 367px;
+background-color :blue;
+        }
+            .auto-style14{
+           border: 1px solid blue;
+            width: 320px;
+            height: 80px;
+            position: absolute;
+            right: 394px;
+            top: 0px;
+background-color :blue;
+        }
+             .auto-style15{
+           border: 1px solid blue;
+            width: 320px;
+            height: 80px;
+            position: absolute;
+            right: 71px;
+            top: 0px;
+            background-color :blue;
+        }
+            .auto-style17/*总的文本框容器*/
+         {
+            border: 1px solid black;
+            position: absolute;
+            width: 1220px;
+            height: 585px;
+            background-color: antiquewhite;
+            left: 75px;
+            top: 44px;
+        }
+        .auto-style18 {
+            border: 1px solid black;
+            width: 1090px;
+            height: 365px;
+            position:absolute;
+            left: 94px;
+            top: 104px;
+        }
+        .auto-style19 {
+            width: 1090px;
+            position:absolute;
+            left: 94px;
+            top: 39px;
+            height: 37px;
+            border: 1px solid black;
+        }
+        *{margin:0;padding:0;border:0;}
+#fm { line-height: 80px; list-style-type: none; background:#666; }/*设置盒子的行高，去掉标记，设置背景颜色
+
+*/
+#fm a { display: block; width: 320px; text-align:center; }/*设置A标签为块元素不显示，宽度，居中*/
+#fm a:link { color:red; text-decoration:none; } /* 设置未访问的链接样式*/
+#fm a:visited { color:white;text-decoration:none; } /* 设置已访问的链接样式 字体白色*/
+
+#fm li { float: left; width: 150px; background:blue; }/*框内颜色*/
+#fm li a:hover{ background:#999; }/*选中后的颜色*/
+#fm li ul { line-height: 27px; list-style-type: none;text-align:left; left: -999em; width: 80px; position: 
+
+absolute; }
+#fm li ul li{ float: left; width: 80px; background: #F6F6F6; } 
+#fm li ul a{ display: block; width: 80px;width: 80px;text-align:left;padding-left:5px; } 
+#fm li ul a:link { color:#666; text-decoration:none; } 
+#fm li ul a:visited { color:#666;text-decoration:none; } /*子菜单字体*/
+#fm li ul a:hover { color:#F3F3F3;text-decoration:none;font-weight:normal; background:#C00; } 
+#fm li:hover ul { left: auto; } 
+#fm li.sfhover ul { left: auto; } 
+#content { clear: left; }
+        
+		
+        
+		.auto-style30 {
+            height: 30px;
+            position:absolute;
+            left: 489px;
+            top: 655px;
+        }
+		
+            .auto-style31 {
+                position: absolute;
+                left: 1290px;
+                top: 0px;
+				background-color:yellow;
+                height:48px;
+                width: 445px;
+                text-align: left;
+            }
+            .auto-style32 {
+                position: relative;
+                left:0%;
+                top: 0px;
+				background-color:orange;
+				maigin:auto;
+                width: 1300px;
+                height:48px;
+                }
+				.auto-style39 {
+            height: 27px;
+            width: 88px;
+            position:absolute;
+            left: 1077px;
+            top: 483px;
+            border-bottom:3px solid gray;
+			border-left:3px solid gray;
+            background-color:blue;
+			color:white;
+        }
+            
+		
+        
+        </style>
+    <script>
+        function menuFix() {
+            var sfEls = document.getElementById("fm").getElementsByTagName("li");
+            for (var i = 0; i < sfEls.length; i++) {
+                sfEls[i].onmouseover = function () {
+                    this.className += (this.className.length > 0 ? " " : "") + "sfhover";
+                }
+                sfEls[i].onMouseDown = function () {
+                    this.className += (this.className.length > 0 ? " " : "") + "sfhover";
+                }
+                sfEls[i].onMouseUp = function () {
+                    this.className += (this.className.length > 0 ? " " : "") + "sfhover";
+                }
+                sfEls[i].onmouseout = function () {
+                    this.className = this.className.replace(new RegExp("( ?|^)sfhover\\b"),
+                    "");
+                }
+            }
+        }
+        window.onload = menuFix;
+    </script>
+</head>
+
+
+<body style="background: linear-gradient(to top , #E3E3E3 0%, #CDB5CD 25%, white 100%);">
+    
+    <div  class="auto-style1">  <!总的容器>
+    <div class="auto-style2"><!登录注册容器>
+   <div  class="auto-style32"></div>
+   <div  class="auto-style31" style="font-size:20">&nbsp&nbsp<a href="login.html" title="登陆"><span>登陆</span></a>|<a href="login.html"    title="注册"><span>注册</span></a></div>
+
+    </div><!登录注册容器>
+        
+        <div class="auto-style8"><!logo容器>
+ <img  class="auto-style10" src="images/logo.jpg" />
+           
+           
+
+        </div>
+        <div class="auto-style11" style="z-index:100">
+            
+            <div class="auto-style12">
+
+ <UL id=fm > 
+<LI><A href="zwpg.html"><font size="4.5" color="white">作文批改</font></A>
+</UL>
+            </div>
+            <div class="auto-style13">
+                
+ <UL id=fm > 
+<LI><A href="#"><font size="4.5" color="white">阅读提高</font></A> 
+<UL> 
+<LI><A href="#">阅读1</A></LI> 
+<LI><A href="#">阅读2</A></LI> 
+<LI><A href="#">阅读3</A></LI> 
+<LI><A href="#">阅读4</A></LI></UL></LI> 
+</UL>
+            </div>
+            <div class="auto-style14">
+                
+ <UL id=fm > 
+<LI><A href="#"><font size="4.5" color="white">听力训练</font></A>
+<UL> 
+<LI><A href="#">菜单一</A></LI> 
+<LI><A href="#">菜单二</A></LI> 
+<LI><A href="#">菜单三</A></LI> 
+<LI><A href="#">菜单四</A></LI></UL></LI> 
+</UL>
+            </div>
+            <div class="auto-style15">
+                
+ <UL id=fm > 
+<LI><A href="#"><font size="4.5" color="white">小憩一下</font></A>
+<UL> 
+<LI><A href="#">四级菜单目</A></LI> 
+<LI><A href="#">四级菜单目</A></LI> 
+<LI><A href="#">四级菜单目</A></LI> 
+<LI><A href="#">四级菜单目</A></LI></UL></LI> 
+</UL>
+            </div>
+
+        </div><!菜单容器容器>
+        <div style="border: 2px;
+            width: 1406px;
+			
+            height: 1180px;
+            position: relative;
+			margin:auto;
+			left:0%"><!中部最大容器>
+         
+      <div class="auto-style17"><!文本容器>
+           <br />
+           <br />
+           &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="biaoti">标题：</a> 
+           &nbsp;
+           <br />
+           <br />
+           <br />
+           &nbsp;&nbsp;&nbsp;&nbsp; <a class="zhengwen">正文：</a> 
+           <form action="http://localhost:8002/passage/" method="get">
+<textarea class="auto-style18" name="text"></textarea><input class="auto-style19" />
+               <input  type="submit" value="提交" class="auto-style39" title="点击提交作文"/>
+<style>
+
+</style>
+            </form>
+       </div><!文本容器>
+	   
+        
+             <div class="auto-style30">
+        <!总的容器><a> <span>版权所有@中国海洋大学 鲁ICP备05002467号-1
+</span></a>
+    </div>
+			</div>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.min.js"></script>
+		<link rel="stylesheet"  href="statics/css/LoginForm.css"/>
+	</head>
+	<body>
+		  <form class="login-form">
+		    <h1>Sign Up</h1>
+		    <div class="txtb">
+		      <input type="text" v-model="name">
+		      <span data-placeholder="Username"></span>
+		    </div>	
+		    <div class="txtb">
+		      <input type="password" v-model="password">
+		      <span data-placeholder="Password"></span>
+		    </div>	
+		    <div class="txtb">
+		      <input type="password" v-model="passwordRepeart">
+		      <span data-placeholder="PasswordRepeart"></span>
+		    </div>	
+		    <button type="button" @click="reg()" class="logbtn" >Yes</button>
+		    <button type="button" @click="location=" class="logbtn" >Cancel</button>
+		
+		  </form>
+		  
+		  <script type="text/javascript">
+		  	$(".txtb input").on("focus",function(){
+		  	  $(this).addClass("focus");
+		  	});
+		  	
+		  	$(".txtb input").on("blur",function(){
+		  	  if($(this).val() ==="")
+		  	    $(this).removeClass("focus");
+		  	});
+		  </script>
+		  
+		  <script type="text/javascript">
+		 
+		  </script>
+	</body>
+</html>

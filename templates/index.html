@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>批改结果</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static "/css/test.css" %}">
+</head>
+<body>
+<div class="lzhdiv">
+    批改结果
+</div>
+ {% for line in lst %}
+        <tr>
+            句子{{forloop.counter }}
+             start：{{ line.start }}<br />
+             end：{{ line.end }}<br />
+            是否错误：{{ line.isright }}<br />
+            原句：{{ line.sen }}<br />
+            错误的部分：{{ line.orgstr }}<br />
+            正确写法:{{ line.rightwrite }}<br />
+            tips:{{ line.zhhelp }}<br />
+            
+        </tr>
+    {% endfor %}
+</body>
+</html>

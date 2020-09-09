@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="{% static 'page/statics/css/Home.css' %}" />
+<script src="statics/js/jquery-1.11.0.js" ></script>
+<script src="statics/js/vue.min.js"></script>
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #f2f2f4;">
+	<div class="row text-right pull-right" style="background-color: #d6e0f0; height: auto;">
+		<div class="col-10"></div>
+		<div class="btn btn-primary col-1" style="margin: 5px;">登录/注册</div>
+	</div>
+	<div class="bg-grey">
+		<div>
+			<a href="#">
+				<h2 class="title">相册</h2></a>
+			<!-- <p class="subtitle">dsc</p> -->
+			<div class="tab-block information-tab">
+				<div class="tab-buttons ">
+					<h3 class="tab-button cur" data-tab="one">全部</h3>
+					<h3 class="tab-button" data-tab="two">最新</h3>
+					<h3 class="tab-button" data-tab="three">最热 </h3>
+				</div>
+				<div class="tabs">
+					<div class="tab-item active" id="tab-one" style="background-color: white; height: auto;">
+						<div id="app1" class="row">
+							<div class="col-2" v-for="item in list" style="margin-bottom: 20px;">
+								<a href="display.html">
+									<img :src="item.src" style="width: 150px; height: 150px;" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="tab-item" id="tab-two">
+						<div id="app2">
+
+						</div>
+					</div>
+					<div class="tab-item" id="tab-three">
+						<div id="app3">
+
+						</div>
+						
+					</div>
+					<div class="text-center" style="margin: auto;padding: 50px;">Coptyright@ouc.edu.cn of zg</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		//tab切换		
+		$('.tab-button').click(function() {
+			var tab = $(this).data('tab')
+			$(this).addClass('cur').siblings('.tab-button').removeClass('cur');
+			$('#tab-' + tab + '').addClass('active').siblings('.tab-item').removeClass('active');
+		});
+	</script>
+	<script>
+    $(document).ready(function () {
+　　              var app1 =new Vue ({
+			el:'#app1',
+			data:{
+				list:[
+					{src:"https://mvp.aliyun.com/?spm=5176.10676876.header.2.150c185cWHRjzT%3Futm_content%3Dg_1000179046"},
+					{src:'statics/images/2.png'},
+					{src:'statics/images/3.png'},
+					{src:'statics/images/4.png'},
+					{src:'statics/images/5.png'},
+					{src:'statics/images/6.png'},
+					{src:'statics/images/4.png'},
+					{src:'statics/images/5.png'},
+					{src:'statics/images/6.png'},
+					{src:'statics/images/1.png'},
+					{src:'statics/images/2.png'},
+					{src:'statics/images/3.png'},
+					{src:'statics/images/4.png'},
+					{src:'statics/images/5.png'},
+					{src:'statics/images/6.png'},
+					{src:'statics/images/2.png'},
+					{src:'statics/images/3.png'},
+					{src:'statics/images/4.png'},
+					{src:'statics/images/5.png'},
+					{src:'statics/images/6.png'},
+					{src:'statics/images/4.png'},
+					{src:'statics/images/5.png'},
+					{src:'statics/images/6.png'},
+					{src:'statics/images/1.png'},
+					{src:'statics/images/2.png'},
+					{src:'statics/images/3.png'},
+					{src:'statics/images/4.png'},
+					{src:'statics/images/5.png'},
+					{src:'statics/images/6.png'},
+				]
+			}
+
+		});          
+});
+
+		
+	</script>
+
+</body>
+</html>
