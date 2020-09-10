@@ -11,10 +11,11 @@ import time
 import os
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect  
+from django.http import HttpResponseRedirect
 
+data = linkmysql("ip", "root", "mima", "blog")
 def blog(request):
-        data=linkmysql("47.107.227.208","root","hismine","blog")
+
         article=data.getAllArticle()
          
 #        return render(request, 'base.html',{"p":passage})
@@ -31,16 +32,14 @@ def sendemail(request):
         send(from_addr, password, to_addr, smtp_server, 'Hi, my name is Kitsch. Briefly introduce yourself here. You can also provide a link to the about page.', 'Welcome!', 'Hi')
         return HttpResponseRedirect("../blog/")
 def article(request):
-        data=linkmysql("47.107.227.208","root","hismine","blog")
+
         id=request.GET.get("id")
         article=data.selectbyid(id)
          
 #        return render(request, 'base.html',{"p":passage})
         return render(request, 'devblog/blog-post.html',{"a":article})
 def index(request):
-        data=linkmysql("47.107.227.208","root","hismine","blog")
-        
-        article=data.getAllArticle()
+    article=data.getAllArticle()
          
 #        return render(request, 'base.html',{"p":passage})
         return render(request, 'devblog/index.html',{"articles":article})
@@ -55,10 +54,9 @@ def add(request):
     password=request.POST.get('password','')
     if password=="fan":
         print(password)
-        data=linkmysql("47.107.227.208","root","hismine","blog")
-        
+
         data.addarticle(title=title,code=code,content=content,intro=intro)
-        from_addr = '1697935859@qq.com'
+        from_addr = ''
         pd = 'yokhrbcxhllleceg'
         to_addr = data.getallemail()
         
@@ -72,16 +70,13 @@ def myadmin(request):
     
     return render(request,"devblog/admin2.html")
 
-def upload_imgs(request):
-        if request.method == 'POST':
-                newImg = request.FILES.get("upLoadImg", None)
-                if not newImg:
-                        return HttpResponse("没有图片被上传")
-                destination = open(os.path.join(BASE_DIR,'static','images',newImg.name),'wb')
-                for chunk in newImg.chunks():
-                        destination.write(chunk)
-                destination.close()
-                return HttpResponse("成功上传")
-
-
-
+# def upload_imgs(request):
+#         if request.method == 'POST':
+#                 newImg = request.FILES.get("upLoadImg", None)
+#                 if not newImg:
+#                         return HttpResponse("没有图片被上传")
+#                 # destination = open(os.path.join(BASE_DIR,'static','images',newImg.name),'wb')
+#                 for chunk in newImg.chunks():
+#                         destination.write(chunk)
+#                 destination.close()
+#                 return HttpResponse("成功上传")

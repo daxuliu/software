@@ -223,7 +223,7 @@ class linkmysql:
         print(res)
         return res
 if __name__ == '__main__':
-    # linkmysql = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
+    pass
     #linkmysql.album_select()
     # time1 = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
     #linkmysql.album_addalbum("12","2131",time1)
@@ -260,10 +260,4 @@ if __name__ == '__main__':
     # print(linkmysql.getuserid("admin"))
     # print(linkmysql.album_user())用户名
     # print(str(linkmysql.user_img('user2')))
-    username="user2"
-    data = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
-    userid = data.getuserid(username)[0][0]
-    filename="test"
-    data.Img_add(filename, username, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))  # 写入img表
-    imgid = data.top_img()[0][0]
-    data.user_addImg(userid, imgid)  #
+    #

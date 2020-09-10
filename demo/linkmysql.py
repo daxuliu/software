@@ -47,7 +47,5 @@ class linkmysql:
         self.cursor.execute(sql, (address))
         self.db.commit()
 if  __name__ == '__main__':
-    linkmysql=linkmysql("47.107.227.208","root","hismine","blog")
-
     res=linkmysql.selectbyid(1)
     print(res.code)

@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from .mydatabase import linkmysql
 import json
 
+data = linkmysql('ip', 'root', 'password', 'ruangong')
 # Create your views here.
 def check_user(func):
     def warpper(request, *args, **kwargs):
@@ -26,7 +27,7 @@ def login(request):
 def login_action(request):
     username = request.POST.get("username")
     password = request.POST.get("pwd")
-    data = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
+
     userpw = data.user_selectByUserName(username)
     if len(userpw) == 0:
         return render(request, 'page/loginform.html')
@@ -59,7 +60,7 @@ def pic_handle(request):
             pic.write(c)
         #     img = IMG(img = f1)
         #     img.save()
-    data = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
+
     userid=data.getuserid(username)[0][0]
 
 
@@ -81,7 +82,7 @@ def pic_show(request):
 def register(request):
     username = request.POST.get("username")
     password = request.POST.get("pwd")
-    data = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
+
     res = data.user_selectByUserName(username)
     if len(res) == 0:
         data.user_addUser(username,password)
@@ -89,12 +90,11 @@ def register(request):
     else:
         return HttpResponse('False')
 def album(request):
-    data = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
     res=data.album_select()
 def get_user_img(request):
     try:
         username = request.GET.get("username")
-        data = linkmysql('47.107.227.208', 'root', 'hismine', 'ruangong')
+
         res=data.user_img(username)
         return HttpResponse(json.dumps(res,ensure_ascii=False),content_type="application/json,charset=utf-8")
     except:
