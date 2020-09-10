@@ -42,7 +42,7 @@ def index(request):
     article=data.getAllArticle()
          
 #        return render(request, 'base.html',{"p":passage})
-        return render(request, 'devblog/index.html',{"articles":article})
+    return render(request, 'devblog/index.html', {"articles": article})
 def about(request):
         return render(request,"devblog/about.html")
 def add(request):
